@@ -1272,13 +1272,21 @@ function renderUpcomingGoals(){
 
 function exportData(){
 
+    const data = {
+
+        goals,
+        paydays,
+        availableMoney
+
+    };
+
     const blob =
 
     new Blob(
 
         [
             JSON.stringify(
-                goals,
+                data,
                 null,
                 2
             )
@@ -1318,18 +1326,33 @@ function importData(event){
     new FileReader();
 
     reader.onload =
-    e => {
+e => {
 
-        goals =
-        JSON.parse(
-            e.target.result
-        );
+    const data =
+    JSON.parse(
+        e.target.result
+    );
 
-        saveGoals(goals);
+    goals =
+    data.goals || [];
 
-        renderAll();
+    paydays =
+    data.paydays || [];
 
-    };
+    availableMoney =
+    data.availableMoney || 0;
+
+    saveGoals(goals);
+
+    savePaydays(paydays);
+
+    saveAvailableMoney(
+        availableMoney
+    );
+
+    renderAll();
+
+};
 
     reader.readAsText(file);
 
