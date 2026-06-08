@@ -407,9 +407,7 @@ confirmMoneyBtn.addEventListener(
 
             amount,
 
-            date:
-            new Date()
-            .toLocaleString()
+            date: new Date().toISOString()
 
         });
 
@@ -443,13 +441,13 @@ confirmMoneyBtn.addEventListener(
 
         goal.history.unshift({
 
-            amount:-amount,
+    amount:-amount,
 
-            date:
-            new Date()
-            .toLocaleString()
+    date:
+    new Date()
+    .toISOString()
 
-        });
+});
 
     }
 
@@ -686,7 +684,7 @@ amount,
 
 date:
 new Date()
-.toLocaleString()
+.toISOString()
 
 });
 
@@ -1396,8 +1394,8 @@ function removeMoney(id){
         amount:-amount,
 
         date:
-        new Date()
-        .toLocaleString()
+new Date()
+.toISOString()
 
     });
 
